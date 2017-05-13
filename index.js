@@ -7,10 +7,10 @@ var express = require('express'),
 httpServerFunction();
 //send file request
    function httpServerFunction(){
-        app.use('/', express.static((path.join(__dirname,'../dist'))));
-        app.use('/contact', express.static((path.join(__dirname,'../dist'))));
-        app.use('/tech', express.static((path.join(__dirname,'../dist'))));
-        app.use('/work', express.static((path.join(__dirname,'../dist'))));
+        app.use('/', express.static((path.join(__dirname,'./dist'))));
+        app.use('/contact', express.static((path.join(__dirname,'./dist'))));
+        app.use('/tech', express.static((path.join(__dirname,'./dist'))));
+        app.use('/work', express.static((path.join(__dirname,'./dist'))));
 
         ///////
         app.set('port', (process.env.PORT || 5000));
