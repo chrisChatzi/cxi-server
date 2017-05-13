@@ -451,6 +451,9 @@ button {
       opacity: 0;
       transform: scale(0);
       cursor: default; }
+      @media (max-width: 800px) {
+        .main .boxes .box {
+          width: 98%; } }
       .main .boxes .box:hover .icon {
         transform: scale(1.1); }
       .main .boxes .box:hover .title {
