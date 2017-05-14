@@ -177,6 +177,7 @@ button {
   to {
     transform: scale(1.1); } }
 
+/*slides*/
 @keyframes slideLeft {
   from {
     transform: translate(-100%); }
@@ -242,6 +243,7 @@ button {
     transform: scale(1);
     opacity: 1; } }
 
+/*shakes*/
 @keyframes shake {
   0% {
     transform: translate(-20px); }
@@ -296,6 +298,7 @@ button {
   100% {
     transform: translate(0); } }
 
+/*contact*/
 @keyframes contact1 {
   0% {
     transform: translate(50%);
@@ -416,6 +419,22 @@ button {
     transform: rotateX(90deg); }
   100% {
     transform: rotateX(0); } }
+
+@keyframes go1 {
+  0% {
+    left: 5px; }
+  10% {
+    left: -5px; }
+  20% {
+    left: -5px; }
+  100% {
+    left: 100%; } }
+
+@keyframes go2 {
+  0% {
+    left: -20px; }
+  100% {
+    left: 100%; } }
 
 /*reused*/
 .titleHead .text, .main .titleTop .text, .tech .titleTop .text, .contact .titleTop .text, .work .titleTop .text {
@@ -571,7 +590,48 @@ button {
       border: 1px solid #ccc;
       opacity: 0;
       transform: scale(0);
-      cursor: default; }
+      cursor: default;
+      position: relative;
+      overflow: hidden; }
+      .main .boxes .box .dot1 {
+        position: absolute;
+        top: 50%;
+        bottom: auto;
+        left: -20px;
+        right: auto;
+        width: 20px;
+        height: 20px;
+        line-height: 20px;
+        border-radius: 20px;
+        background: #fff;
+        opacity: 0.4;
+        animation: go2 linear 2.5s 1 forwards; }
+      .main .boxes .box .dot2 {
+        position: absolute;
+        top: 50%;
+        bottom: auto;
+        left: -20px;
+        right: auto;
+        width: 20px;
+        height: 20px;
+        line-height: 20px;
+        border-radius: 20px;
+        background: #fff;
+        opacity: 0.4;
+        animation: go2 linear 2.5s 2.5s 1 forwards; }
+      .main .boxes .box .dot3 {
+        position: absolute;
+        top: 50%;
+        bottom: auto;
+        left: -20px;
+        right: auto;
+        width: 20px;
+        height: 20px;
+        line-height: 20px;
+        border-radius: 20px;
+        background: #fff;
+        opacity: 0.4;
+        animation: go2 linear 2.5s 5s forwards; }
       @media (max-width: 800px) {
         .main .boxes .box {
           width: 98%; } }
@@ -1765,9 +1825,10 @@ button {
         height: 250px;
         line-height: 250px;
         padding: 20px;
-        background: #336e7b;
+        background: #57575b;
         color: #fff;
-        border: 1px solid rgba(0, 0, 0, 0.5);
+        /*border: 1px solid rgba(0,0,0,0.5);*/
+        border: 1px solid #ccc;
         box-sizing: border-box;
         text-shadow: 5px 5px 2px rgba(0, 0, 0, 0.25);
         /*box-shadow: 0 5px 20px rgba(0,0,0,.1), 0 0 8px 5px rgba(0,0,0,.2) inset;*/ }
@@ -1791,7 +1852,7 @@ button {
           margin: 3px 0;
           padding: 5px 20px;
           white-space: pre-wrap;
-          font-size: 14px; }
+          /*font-size: 18px;*/ }
       .contact .msg .half .cube .back {
         transform: translateZ(-125px) rotateY(180deg); }
       .contact .msg .half .cube .right {

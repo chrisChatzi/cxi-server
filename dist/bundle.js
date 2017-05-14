@@ -25581,15 +25581,17 @@ var Contact = function Contact(_ref) {
 								{ id: "cube2", className: "spinner",
 									onClick: function onClick() {
 										return socialClick(2);
-									},
-									onMouseOver: function onMouseOver() {
+									}, onMouseOver: function onMouseOver() {
 										return socialOver(2);
-									}, onMouseOut: function onMouseOut() {
+									},
+									onMouseOut: function onMouseOut() {
 										return socialOut(2);
 									} },
 								_react2.default.createElement(
 									"div",
-									{ className: "face1" },
+									{ className: "face1", onMouseOver: function onMouseOver() {
+											return socialOver(2);
+										} },
 									_react2.default.createElement("img", { src: "../img/logos/github.png" })
 								),
 								_react2.default.createElement("div", { className: "face2" }),
@@ -25598,7 +25600,9 @@ var Contact = function Contact(_ref) {
 								_react2.default.createElement("div", { className: "face5" }),
 								_react2.default.createElement(
 									"div",
-									{ className: "face6" },
+									{ className: "face6", onMouseOver: function onMouseOver() {
+											return socialOver(2);
+										} },
 									"GitHub"
 								)
 							)
@@ -25884,6 +25888,7 @@ var Main = function Main(_ref) {
 			_react2.default.createElement(
 				"div",
 				{ id: "box1", className: "box" },
+				_react2.default.createElement("div", { className: "dot1" }),
 				_react2.default.createElement(
 					"div",
 					{ id: "icon1", className: "icon" },
@@ -25943,6 +25948,7 @@ var Main = function Main(_ref) {
 			_react2.default.createElement(
 				"div",
 				{ id: "box2", className: "box" },
+				_react2.default.createElement("div", { className: "dot2" }),
 				_react2.default.createElement(
 					"div",
 					{ id: "icon2", className: "icon" },
@@ -25990,6 +25996,7 @@ var Main = function Main(_ref) {
 			_react2.default.createElement(
 				"div",
 				{ id: "box3", className: "box" },
+				_react2.default.createElement("div", { className: "dot3" }),
 				_react2.default.createElement(
 					"div",
 					{ id: "icon3", className: "icon" },
@@ -26003,7 +26010,7 @@ var Main = function Main(_ref) {
 				_react2.default.createElement(
 					"div",
 					{ className: "txt" },
-					"Javascript libraries and plugins. Npm packages for developers. Open-source projects for tutoring and guidance."
+					"Javascript libraries and plugins. Open-source projects for developers."
 				),
 				_react2.default.createElement(
 					"div",
@@ -26025,6 +26032,12 @@ var Main = function Main(_ref) {
 						{ className: "item" },
 						_react2.default.createElement("i", { className: "fa fa-code" }),
 						" Prototyping"
+					),
+					_react2.default.createElement(
+						"div",
+						{ className: "item" },
+						_react2.default.createElement("i", { className: "fa fa-plug" }),
+						" Plugins"
 					)
 				)
 			)
@@ -26533,6 +26546,7 @@ var Contact = function (_Component) {
 		var _this = _possibleConstructorReturn(this, (Contact.__proto__ || Object.getPrototypeOf(Contact)).call(this, props));
 
 		_this.interval = 0;
+		_this.hoveredEl = "";
 
 		_this.state = {
 			name: "",
@@ -26666,12 +26680,18 @@ var Contact = function (_Component) {
 	}, {
 		key: 'socialOverH',
 		value: function socialOverH(i) {
-			var el = document.getElementById("cube" + i);
-			el.style.animation = "spinVertical linear 0.5s 1 forwards";
+			console.log(i);
+			console.log(this.hoveredEl);
+			if (this.hoveredEl != i) {
+				var el = document.getElementById("cube" + i);
+				el.style.animation = "spinVertical linear 0.5s 1 forwards";
+			}
+			this.hoveredEl = i;
 		}
 	}, {
 		key: 'socialOutH',
 		value: function socialOutH(i) {
+			this.hoveredEl = 0;
 			var el = document.getElementById("cube" + i);
 			el.style.animation = "spinVerticalOut linear 0.5s 1 forwards";
 		}
