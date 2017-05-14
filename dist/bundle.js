@@ -25346,7 +25346,10 @@ var Contact = function Contact(_ref) {
 	    mailGo = _ref.mailGo,
 	    titleGo = _ref.titleGo,
 	    txtGo = _ref.txtGo,
-	    msg = _ref.msg;
+	    msg = _ref.msg,
+	    socialOver = _ref.socialOver,
+	    socialOut = _ref.socialOut,
+	    socialClick = _ref.socialClick;
 	return _react2.default.createElement(
 		"div",
 		{ className: "contact" },
@@ -25394,87 +25397,6 @@ var Contact = function Contact(_ref) {
 				)
 			),
 			_react2.default.createElement("div", { id: "line2", className: "line lineBot" })
-		),
-		_react2.default.createElement(
-			"div",
-			{ className: "boxes" },
-			_react2.default.createElement(
-				"div",
-				{ id: "contactBox1", className: "box" },
-				_react2.default.createElement("div", { className: "diag" }),
-				_react2.default.createElement(
-					"div",
-					{ className: "icon" },
-					_react2.default.createElement("i", { className: "fa fa-2x fa-question-circle" })
-				),
-				_react2.default.createElement(
-					"div",
-					{ className: "title" },
-					"Questions"
-				),
-				_react2.default.createElement(
-					"div",
-					{ className: "txt" },
-					"Ask any questions including pricing, development, timelines, features etc."
-				)
-			),
-			_react2.default.createElement(
-				"div",
-				{ id: "contactBox2", className: "box" },
-				_react2.default.createElement(
-					"div",
-					{ className: "icon" },
-					_react2.default.createElement("i", { className: "fa fa-2x fa-search" })
-				),
-				_react2.default.createElement(
-					"div",
-					{ className: "title" },
-					"Market research"
-				),
-				_react2.default.createElement(
-					"div",
-					{ className: "txt" },
-					"Get an idea of the market of your business from a technology point of view"
-				)
-			),
-			_react2.default.createElement(
-				"div",
-				{ id: "contactBox3", className: "box" },
-				_react2.default.createElement(
-					"div",
-					{ className: "icon" },
-					_react2.default.createElement("i", { className: "fa fa-2x fa-bug" })
-				),
-				_react2.default.createElement(
-					"div",
-					{ className: "title" },
-					"Bugs"
-				),
-				_react2.default.createElement(
-					"div",
-					{ className: "txt" },
-					"Ask for help for the identification and solving of bugs in your app"
-				)
-			),
-			_react2.default.createElement(
-				"div",
-				{ id: "contactBox4", className: "box" },
-				_react2.default.createElement(
-					"div",
-					{ className: "icon" },
-					_react2.default.createElement("i", { className: "fa fa-2x fa-graduation-cap" })
-				),
-				_react2.default.createElement(
-					"div",
-					{ className: "title" },
-					"Advice"
-				),
-				_react2.default.createElement(
-					"div",
-					{ className: "txt" },
-					"Advices regarding development choices"
-				)
-			)
 		),
 		_react2.default.createElement(
 			"div",
@@ -25535,7 +25457,7 @@ var Contact = function Contact(_ref) {
 					),
 					_react2.default.createElement(
 						"div",
-						{ className: "row" },
+						{ className: "row send" },
 						_react2.default.createElement(
 							"button",
 							{ onClick: msg },
@@ -25549,51 +25471,205 @@ var Contact = function Contact(_ref) {
 				{ className: "half" },
 				_react2.default.createElement(
 					"div",
-					{ className: "msg-icon" },
-					_react2.default.createElement("i", { className: "fa fa-2x fa-users" })
-				),
-				_react2.default.createElement(
-					"div",
-					{ className: "msg-title" },
+					{ className: "infoCube" },
 					_react2.default.createElement(
-						"span",
-						{ className: "words" },
-						"Social"
-					),
-					_react2.default.createElement(
-						"span",
-						{ className: "words" },
-						"media"
+						"div",
+						{ className: "wrap" },
+						_react2.default.createElement(
+							"div",
+							{ id: "cube", className: "cube" },
+							_react2.default.createElement(
+								"div",
+								{ className: "item front" },
+								_react2.default.createElement(
+									"div",
+									{ className: "icon" },
+									_react2.default.createElement("i", { className: "fa fa-2x fa-question-circle" })
+								),
+								_react2.default.createElement(
+									"div",
+									{ className: "title" },
+									"Questions"
+								),
+								_react2.default.createElement(
+									"div",
+									{ className: "txt" },
+									"Ask any questions including pricing, development, timelines, features etc."
+								)
+							),
+							_react2.default.createElement(
+								"div",
+								{ className: "item back" },
+								_react2.default.createElement(
+									"div",
+									{ className: "icon" },
+									_react2.default.createElement("i", { className: "fa fa-2x fa-bug" })
+								),
+								_react2.default.createElement(
+									"div",
+									{ className: "title" },
+									"Bugs"
+								),
+								_react2.default.createElement(
+									"div",
+									{ className: "txt" },
+									"Ask for help for the identification and solving of bugs in your app"
+								)
+							),
+							_react2.default.createElement(
+								"div",
+								{ className: "item top" },
+								"top"
+							),
+							_react2.default.createElement(
+								"div",
+								{ className: "item bottom" },
+								"bottom"
+							),
+							_react2.default.createElement(
+								"div",
+								{ className: "item left" },
+								_react2.default.createElement(
+									"div",
+									{ className: "icon" },
+									_react2.default.createElement("i", { className: "fa fa-2x fa-search" })
+								),
+								_react2.default.createElement(
+									"div",
+									{ className: "title" },
+									"Market research"
+								),
+								_react2.default.createElement(
+									"div",
+									{ className: "txt" },
+									"Get an idea of the market of your business from a technology point of view"
+								)
+							),
+							_react2.default.createElement(
+								"div",
+								{ className: "item right" },
+								_react2.default.createElement(
+									"div",
+									{ className: "icon" },
+									_react2.default.createElement("i", { className: "fa fa-2x fa-graduation-cap" })
+								),
+								_react2.default.createElement(
+									"div",
+									{ className: "title" },
+									"Advice"
+								),
+								_react2.default.createElement(
+									"div",
+									{ className: "txt" },
+									"Advices regarding development choices"
+								)
+							)
+						)
 					)
 				),
 				_react2.default.createElement(
 					"div",
-					{ className: "msg-main social" },
+					{ className: "social" },
 					_react2.default.createElement(
 						"div",
-						{ className: "circle circle1" },
+						{ className: "wrap2" },
 						_react2.default.createElement(
-							"a",
-							{ href: "https://www.linkedin.com/in/christos-chatziioannidis-097a2166/", target: "_blank" },
-							"LinkedIn"
+							"div",
+							{ className: "cube2" },
+							_react2.default.createElement(
+								"div",
+								{ id: "cube2", className: "spinner",
+									onClick: function onClick() {
+										return socialClick(2);
+									},
+									onMouseOver: function onMouseOver() {
+										return socialOver(2);
+									}, onMouseOut: function onMouseOut() {
+										return socialOut(2);
+									} },
+								_react2.default.createElement(
+									"div",
+									{ className: "face1" },
+									_react2.default.createElement("img", { src: "../img/logos/github.png" })
+								),
+								_react2.default.createElement("div", { className: "face2" }),
+								_react2.default.createElement("div", { className: "face3" }),
+								_react2.default.createElement("div", { className: "face4" }),
+								_react2.default.createElement("div", { className: "face5" }),
+								_react2.default.createElement(
+									"div",
+									{ className: "face6" },
+									"GitHub"
+								)
+							)
 						)
 					),
 					_react2.default.createElement(
 						"div",
-						{ className: "circle circle2" },
+						{ className: "wrap2" },
 						_react2.default.createElement(
-							"a",
-							{ href: "https://github.com/chrisChatzi", target: "_blank" },
-							"Github"
+							"div",
+							{ className: "cube3" },
+							_react2.default.createElement(
+								"div",
+								{ id: "cube3", className: "spinner",
+									onClick: function onClick() {
+										return socialClick(3);
+									},
+									onMouseOver: function onMouseOver() {
+										return socialOver(3);
+									}, onMouseOut: function onMouseOut() {
+										return socialOut(3);
+									} },
+								_react2.default.createElement(
+									"div",
+									{ className: "face1" },
+									_react2.default.createElement("img", { src: "../img/logos/npm.png" })
+								),
+								_react2.default.createElement("div", { className: "face2" }),
+								_react2.default.createElement("div", { className: "face3" }),
+								_react2.default.createElement("div", { className: "face4" }),
+								_react2.default.createElement("div", { className: "face5" }),
+								_react2.default.createElement(
+									"div",
+									{ className: "face6" },
+									"npm"
+								)
+							)
 						)
 					),
 					_react2.default.createElement(
 						"div",
-						{ className: "circle circle3" },
+						{ className: "wrap2" },
 						_react2.default.createElement(
-							"a",
-							{ href: "https://www.npmjs.com/~christos.chatzi", target: "_blank" },
-							"npm"
+							"div",
+							{ className: "cube4" },
+							_react2.default.createElement(
+								"div",
+								{ id: "cube4", className: "spinner",
+									onClick: function onClick() {
+										return socialClick(4);
+									},
+									onMouseOver: function onMouseOver() {
+										return socialOver(4);
+									}, onMouseOut: function onMouseOut() {
+										return socialOut(4);
+									} },
+								_react2.default.createElement(
+									"div",
+									{ className: "face1" },
+									_react2.default.createElement("img", { src: "../img/logos/linkedin.png" })
+								),
+								_react2.default.createElement("div", { className: "face2" }),
+								_react2.default.createElement("div", { className: "face3" }),
+								_react2.default.createElement("div", { className: "face4" }),
+								_react2.default.createElement("div", { className: "face5" }),
+								_react2.default.createElement(
+									"div",
+									{ className: "face6" },
+									"LinkedIn"
+								)
+							)
 						)
 					)
 				)
@@ -25622,40 +25698,87 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 var Header = function Header(_ref) {
 	var _React$createElement, _React$createElement2;
 
-	var lang = _ref.lang,
+	var state = _ref.state,
+	    lang = _ref.lang,
 	    path = _ref.path,
-	    route = _ref.route;
+	    route = _ref.route,
+	    openMobileMenu = _ref.openMobileMenu;
 	return _react2.default.createElement(
 		"div",
 		{ className: "header" },
 		_react2.default.createElement(
 			"div",
-			{ className: "logo", onClick: function onClick() {
-					return route("");
-				} },
-			"CXI"
+			{ className: "desktop" },
+			_react2.default.createElement(
+				"div",
+				{ className: "logo", onClick: function onClick() {
+						return route("");
+					} },
+				"CXI"
+			),
+			_react2.default.createElement(
+				"div",
+				{ id: "head3", className: path == "contact" ? "right on" : "right",
+					onClick: function onClick() {
+						return route("contact");
+					} },
+				lang.head[2]
+			),
+			_react2.default.createElement(
+				"div",
+				(_React$createElement = { id: "head2", className: "right" }, _defineProperty(_React$createElement, "className", path == "work" ? "right on" : "right"), _defineProperty(_React$createElement, "onClick", function onClick() {
+					return route("work");
+				}), _React$createElement),
+				lang.head[1]
+			),
+			_react2.default.createElement(
+				"div",
+				(_React$createElement2 = { id: "head1", className: "right" }, _defineProperty(_React$createElement2, "className", path == "tech" ? "right on" : "right"), _defineProperty(_React$createElement2, "onClick", function onClick() {
+					return route("tech");
+				}), _React$createElement2),
+				lang.head[0]
+			)
 		),
 		_react2.default.createElement(
 			"div",
-			{ id: "head3", className: path == "contact" ? "right on" : "right",
-				onClick: function onClick() {
-					return route("contact");
-				} },
-			lang.head[2]
-		),
-		_react2.default.createElement(
-			"div",
-			(_React$createElement = { id: "head2", className: "right" }, _defineProperty(_React$createElement, "className", path == "work" ? "right on" : "right"), _defineProperty(_React$createElement, "onClick", function onClick() {
-				return route("work");
-			}), _React$createElement),
-			lang.head[1]
-		),
-		_react2.default.createElement(
-			"div",
-			(_React$createElement2 = { id: "head1", className: "right" }, _defineProperty(_React$createElement2, "className", path == "tech" ? "right on" : "right"), _defineProperty(_React$createElement2, "onClick", function onClick() {
-				return route("tech");
-			}), _React$createElement2),
-			lang.head[0]
+			{ className: "mobile" },
+			_react2.default.createElement(
+				"div",
+				{ className: "logo", onClick: function onClick() {
+						return route("");
+					} },
+				"CXI"
+			),
+			_react2.default.createElement(
+				"div",
+				{ className: "mobileBar", onClick: openMobileMenu },
+				_react2.default.createElement("i", { className: "fa fa-bars" })
+			),
+			_react2.default.createElement(
+				"div",
+				{ className: state.mobileShowMenu ? "mobileMenu" : "mobileMenu off" },
+				_react2.default.createElement(
+					"div",
+					{ className: "row", onClick: function onClick() {
+							return route("tech");
+						} },
+					lang.head[0]
+				),
+				_react2.default.createElement(
+					"div",
+					{ className: "row", onClick: function onClick() {
+							return route("work");
+						} },
+					lang.head[1]
+				),
+				_react2.default.createElement(
+					"div",
+					{ className: "row", onClick: function onClick() {
+							return route("contact");
+						} },
+					lang.head[2]
+				)
+			)
 		)
 	);
 };
@@ -26045,7 +26168,7 @@ var Tech = function Tech(_ref) {
 						),
 						_react2.default.createElement(
 							"div",
-							{ className: state.hover == v.type ? "content show " + v.type : "content hidden " + v.type,
+							{ className: state.hover == v.type ? "content show " : "content hidden ",
 								onMouseOver: function onMouseOver() {
 									return hoverType(i, "f");
 								}, onMouseOut: function onMouseOut() {
@@ -26145,97 +26268,101 @@ var Work = function Work(_ref) {
 	return _react2.default.createElement(
 		"div",
 		{ className: "work" },
-		_react2.default.createElement("div", { id: "line", className: "line lineTop" }),
 		_react2.default.createElement(
 			"div",
-			{ id: "", className: "text" },
+			{ className: "titleTop" },
+			_react2.default.createElement("div", { id: "line", className: "line lineTop" }),
 			_react2.default.createElement(
-				"span",
-				{ className: "letters" },
-				"W"
+				"div",
+				{ id: "", className: "text" },
+				_react2.default.createElement(
+					"span",
+					{ className: "letters" },
+					"W"
+				),
+				_react2.default.createElement(
+					"span",
+					{ className: "letters" },
+					"o"
+				),
+				_react2.default.createElement(
+					"span",
+					{ className: "letters" },
+					"r"
+				),
+				_react2.default.createElement(
+					"span",
+					{ className: "letters" },
+					"k"
+				),
+				_react2.default.createElement(
+					"span",
+					null,
+					"\xA0"
+				),
+				_react2.default.createElement(
+					"span",
+					{ className: "letters" },
+					"&"
+				),
+				_react2.default.createElement(
+					"span",
+					null,
+					"\xA0"
+				),
+				_react2.default.createElement(
+					"span",
+					{ className: "letters" },
+					"E"
+				),
+				_react2.default.createElement(
+					"span",
+					{ className: "letters" },
+					"x"
+				),
+				_react2.default.createElement(
+					"span",
+					{ className: "letters" },
+					"p"
+				),
+				_react2.default.createElement(
+					"span",
+					{ className: "letters" },
+					"e"
+				),
+				_react2.default.createElement(
+					"span",
+					{ className: "letters" },
+					"r"
+				),
+				_react2.default.createElement(
+					"span",
+					{ className: "letters" },
+					"i"
+				),
+				_react2.default.createElement(
+					"span",
+					{ className: "letters" },
+					"e"
+				),
+				_react2.default.createElement(
+					"span",
+					{ className: "letters" },
+					"n"
+				),
+				_react2.default.createElement(
+					"span",
+					{ className: "letters" },
+					"c"
+				),
+				_react2.default.createElement(
+					"span",
+					{ className: "letters" },
+					"e"
+				)
 			),
-			_react2.default.createElement(
-				"span",
-				{ className: "letters" },
-				"o"
-			),
-			_react2.default.createElement(
-				"span",
-				{ className: "letters" },
-				"r"
-			),
-			_react2.default.createElement(
-				"span",
-				{ className: "letters" },
-				"k"
-			),
-			_react2.default.createElement(
-				"span",
-				null,
-				"\xA0"
-			),
-			_react2.default.createElement(
-				"span",
-				{ className: "letters" },
-				"&"
-			),
-			_react2.default.createElement(
-				"span",
-				null,
-				"\xA0"
-			),
-			_react2.default.createElement(
-				"span",
-				{ className: "letters" },
-				"E"
-			),
-			_react2.default.createElement(
-				"span",
-				{ className: "letters" },
-				"x"
-			),
-			_react2.default.createElement(
-				"span",
-				{ className: "letters" },
-				"p"
-			),
-			_react2.default.createElement(
-				"span",
-				{ className: "letters" },
-				"e"
-			),
-			_react2.default.createElement(
-				"span",
-				{ className: "letters" },
-				"r"
-			),
-			_react2.default.createElement(
-				"span",
-				{ className: "letters" },
-				"i"
-			),
-			_react2.default.createElement(
-				"span",
-				{ className: "letters" },
-				"e"
-			),
-			_react2.default.createElement(
-				"span",
-				{ className: "letters" },
-				"n"
-			),
-			_react2.default.createElement(
-				"span",
-				{ className: "letters" },
-				"c"
-			),
-			_react2.default.createElement(
-				"span",
-				{ className: "letters" },
-				"e"
-			)
+			_react2.default.createElement("div", { id: "line2", className: "line lineBot" })
 		),
-		_react2.default.createElement("div", { id: "line2", className: "line lineBot" }),
 		_react2.default.createElement(
 			"div",
 			{ className: "timeline" },
@@ -26243,14 +26370,14 @@ var Work = function Work(_ref) {
 			state.projects.map(function (v, i) {
 				return _react2.default.createElement(
 					"div",
-					{ key: i },
+					{ className: "timeRow", key: i },
 					_react2.default.createElement("div", { id: "point" + i,
 						onMouseOver: function onMouseOver() {
 							return mover(i);
 						}, onMouseOut: function onMouseOut() {
 							return mout(i);
 						},
-						className: "point", style: { "top": i * 190 + 50 + "px" } }),
+						className: "point", style: { "top": i * 210 + 50 + "px" } }),
 					_react2.default.createElement(
 						"div",
 						{ id: "date" + i, className: i % 2 == 0 ? "date dateRight" : "date dateLeft",
@@ -26259,11 +26386,11 @@ var Work = function Work(_ref) {
 							}, onMouseOut: function onMouseOut() {
 								return mout(i);
 							},
-							style: { "top": i * 190 + 48 + "px" } },
+							style: { "top": i * 210 + 48 + "px" } },
 						v.date
 					),
 					_react2.default.createElement("div", { id: "index" + i, className: i % 2 == 0 ? "index indexRight" : "index indexLeft",
-						style: { "top": i * 190 + 57 + "px" } }),
+						style: { "top": i * 210 + 57 + "px" } }),
 					_react2.default.createElement(
 						"div",
 						{ id: "project" + i, onMouseOver: function onMouseOver() {
@@ -26271,14 +26398,18 @@ var Work = function Work(_ref) {
 							}, onMouseOut: function onMouseOut() {
 								return mout(i);
 							},
-							style: { "top": i * 190 + 49 + "px" }, onClick: function onClick() {
+							style: { "top": i * 210 + 49 + "px" }, onClick: function onClick() {
 								return clickProject(i);
 							},
 							className: i % 2 == 0 ? "project projectRight" : "project projectLeft" },
 						_react2.default.createElement(
 							"h3",
 							{ className: "title" },
-							v.name
+							_react2.default.createElement(
+								"span",
+								{ className: "highlight" },
+								v.name
+							)
 						),
 						_react2.default.createElement(
 							"div",
@@ -26401,6 +26532,8 @@ var Contact = function (_Component) {
 
 		var _this = _possibleConstructorReturn(this, (Contact.__proto__ || Object.getPrototypeOf(Contact)).call(this, props));
 
+		_this.interval = 0;
+
 		_this.state = {
 			name: "",
 			mail: "",
@@ -26416,6 +26549,9 @@ var Contact = function (_Component) {
 		_this.titleGo = _this.titleGoH.bind(_this);
 		_this.txtGo = _this.txtGoH.bind(_this);
 		_this.msg = _this.msgH.bind(_this);
+		_this.socialOver = _this.socialOverH.bind(_this);
+		_this.socialOut = _this.socialOutH.bind(_this);
+		_this.socialClick = _this.socialClickH.bind(_this);
 		return _this;
 	}
 
@@ -26454,21 +26590,26 @@ var Contact = function (_Component) {
 					document.getElementsByClassName("row")[x].style.animation = anime;
 				})(_i3);
 			}
-			//social
-			for (var _i4 = 0; _i4 < document.getElementsByClassName("circle").length; _i4++) {
-				(function (x) {
-					var delay = 1 + 0.5 * x;
-					var anime = "popup linear 0.5s " + delay + "s 1 forwards";
-					document.getElementsByClassName("circle")[x].style.animation = anime;
-				})(_i4);
-			}
-			for (var _i5 = 0; _i5 < document.getElementsByClassName("msg-icon").length; _i5++) {
+			for (var _i4 = 0; _i4 < document.getElementsByClassName("msg-icon").length; _i4++) {
 				(function (x) {
 					var delay = 1 + 0.5 * x;
 					var anime = "popup linear 0.5s " + delay + "s 1 forwards";
 					document.getElementsByClassName("msg-icon")[x].style.animation = anime;
-				})(_i5);
+				})(_i4);
 			}
+			//cube
+			var x = 1;
+			var elCube = document.getElementById("cube");
+			this.interval = setInterval(function () {
+				elCube.style.animation = "spinLeft" + x + " linear 1s 1 forwards";
+				x++;
+				if (x == 5) x = 1;
+			}, 4000);
+		}
+	}, {
+		key: 'componentWillUnmount',
+		value: function componentWillUnmount() {
+			clearInterval(this.interval);
 		}
 	}, {
 		key: 'nameGoH',
@@ -26519,6 +26660,40 @@ var Contact = function (_Component) {
 		value: function msgH() {
 			var error = this.checkForm();
 		}
+
+		//social mouse over/out
+
+	}, {
+		key: 'socialOverH',
+		value: function socialOverH(i) {
+			var el = document.getElementById("cube" + i);
+			el.style.animation = "spinVertical linear 0.5s 1 forwards";
+		}
+	}, {
+		key: 'socialOutH',
+		value: function socialOutH(i) {
+			var el = document.getElementById("cube" + i);
+			el.style.animation = "spinVerticalOut linear 0.5s 1 forwards";
+		}
+	}, {
+		key: 'socialClickH',
+		value: function socialClickH(i) {
+			var win = "";
+			switch (i) {
+				case 2:
+					win = window.open("https://github.com/chrisChatzi", '_blank');
+					win.focus();
+					break;
+				case 3:
+					win = window.open("https://www.npmjs.com/~christos.chatzi", '_blank');
+					win.focus();
+					break;
+				case 4:
+					win = window.open("https://www.linkedin.com/in/christos-chatziioannidis-097a2166/", '_blank');
+					win.focus();
+					break;
+			}
+		}
 	}, {
 		key: 'render',
 		value: function render() {
@@ -26526,7 +26701,10 @@ var Contact = function (_Component) {
 			    mailGo = this.mailGo,
 			    titleGo = this.titleGo,
 			    txtGo = this.txtGo,
-			    msg = this.msg;
+			    msg = this.msg,
+			    socialOver = this.socialOver,
+			    socialOut = this.socialOut,
+			    socialClick = this.socialClick;
 
 
 			return _react2.default.createElement(
@@ -26534,7 +26712,7 @@ var Contact = function (_Component) {
 				null,
 				_react2.default.createElement(_Contact2.default, { state: this.state, lang: this.props.lang,
 					nameGo: nameGo, mailGo: mailGo, titleGo: titleGo, txtGo: txtGo,
-					msg: msg })
+					msg: msg, socialOver: socialOver, socialOut: socialOut, socialClick: socialClick })
 			);
 		}
 	}]);
@@ -26609,7 +26787,12 @@ var Header = function (_Component) {
 
 		var _this = _possibleConstructorReturn(this, (Header.__proto__ || Object.getPrototypeOf(Header)).call(this, props));
 
+		_this.state = {
+			mobileShowMenu: false
+		};
+
 		_this.route = _this.routeH.bind(_this);
+		_this.openMobileMenu = _this.openMobileMenuH.bind(_this);
 		return _this;
 	}
 
@@ -26623,11 +26806,20 @@ var Header = function (_Component) {
 	}, {
 		key: 'componentWillUnmount',
 		value: function componentWillUnmount() {}
+		//change route
+
 	}, {
 		key: 'routeH',
 		value: function routeH(path) {
 			this.props.route(path);
 			_history2.default.push("/" + path);
+		}
+		//open mobile menu
+
+	}, {
+		key: 'openMobileMenuH',
+		value: function openMobileMenuH() {
+			this.setState({ mobileShowMenu: !this.state.mobileShowMenu });
 		}
 	}, {
 		key: 'render',
@@ -26635,7 +26827,8 @@ var Header = function (_Component) {
 			return _react2.default.createElement(
 				'div',
 				null,
-				_react2.default.createElement(_Header2.default, { lang: this.props.lang, path: this.props.path, route: this.route })
+				_react2.default.createElement(_Header2.default, { state: this.state, lang: this.props.lang, path: this.props.path,
+					route: this.route, openMobileMenu: this.openMobileMenu })
 			);
 		}
 	}]);
@@ -26902,7 +27095,7 @@ var Tech = function (_Component) {
 				title: "Grunt",
 				img: "../img/logos/grunt.png",
 				back: "../img/gruntb.jpg",
-				info: ["Automating", "2 years exp", "Task runner"]
+				info: ["Automation", "2 years exp", "Task runner"]
 			}],
 			back: [{
 				type: "node",
@@ -26980,6 +27173,12 @@ var Tech = function (_Component) {
 					document.getElementsByClassName("block2")[x].style.animation = anime;
 				})(_i2);
 			}
+		}
+	}, {
+		key: 'componentWillUnmount',
+		value: function componentWillUnmount() {
+			clearInterval(this.timer);
+			clearTimeout(this.timeout);
 		}
 	}, {
 		key: 'hoverH',
@@ -27266,6 +27465,8 @@ var Work = function (_Component) {
 				})(_i3);
 			}
 		}
+		//mouse over/out
+
 	}, {
 		key: 'moverH',
 		value: function moverH(i) {
@@ -27282,6 +27483,8 @@ var Work = function (_Component) {
 			document.getElementById("point" + i).style.background = "";
 			document.getElementById("index" + i).style.background = "";
 		}
+		//click project
+
 	}, {
 		key: 'clickProjectH',
 		value: function clickProjectH(i) {
