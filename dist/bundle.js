@@ -26916,6 +26916,7 @@ var Main = function (_Component) {
 	_createClass(Main, [{
 		key: 'componentDidMount',
 		value: function componentDidMount(e) {
+			document.title = "CXI - Web solutions";
 			//letters of title
 			for (var i = 0; i < document.getElementsByClassName("letters").length; i++) {
 				(function (x) {
