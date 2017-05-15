@@ -25581,17 +25581,15 @@ var Contact = function Contact(_ref) {
 								{ id: "cube2", className: "spinner",
 									onClick: function onClick() {
 										return socialClick(2);
-									}, onMouseOver: function onMouseOver() {
-										return socialOver(2);
+									}, onMouseOver: function onMouseOver(e) {
+										return socialOver(e, 2);
 									},
 									onMouseOut: function onMouseOut() {
 										return socialOut(2);
 									} },
 								_react2.default.createElement(
 									"div",
-									{ className: "face1", onMouseOver: function onMouseOver() {
-											return socialOver(2);
-										} },
+									{ className: "face1" },
 									_react2.default.createElement("img", { src: "../img/logos/github.png" })
 								),
 								_react2.default.createElement("div", { className: "face2" }),
@@ -25620,8 +25618,8 @@ var Contact = function Contact(_ref) {
 									onClick: function onClick() {
 										return socialClick(3);
 									},
-									onMouseOver: function onMouseOver() {
-										return socialOver(3);
+									onMouseOver: function onMouseOver(e) {
+										return socialOver(e, 3);
 									}, onMouseOut: function onMouseOut() {
 										return socialOut(3);
 									} },
@@ -25654,8 +25652,8 @@ var Contact = function Contact(_ref) {
 									onClick: function onClick() {
 										return socialClick(4);
 									},
-									onMouseOver: function onMouseOver() {
-										return socialOver(4);
+									onMouseOver: function onMouseOver(e) {
+										return socialOver(e, 4);
 									}, onMouseOut: function onMouseOut() {
 										return socialOut(4);
 									} },
@@ -25803,7 +25801,10 @@ var _react2 = _interopRequireDefault(_react);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Main = function Main(_ref) {
-	var lang = _ref.lang;
+	var state = _ref.state,
+	    lang = _ref.lang,
+	    hashOver = _ref.hashOver,
+	    hashOut = _ref.hashOut;
 	return _react2.default.createElement(
 		"div",
 		{ className: "main" },
@@ -25885,162 +25886,68 @@ var Main = function Main(_ref) {
 		_react2.default.createElement(
 			"div",
 			{ id: "boxes", className: "boxes" },
-			_react2.default.createElement(
-				"div",
-				{ id: "box1", className: "box" },
-				_react2.default.createElement("div", { className: "dot1" }),
-				_react2.default.createElement(
+			state.box.map(function (v, i) {
+				return _react2.default.createElement(
 					"div",
-					{ id: "icon1", className: "icon" },
-					_react2.default.createElement("i", { className: "fa fa-4x fa-desktop" })
-				),
-				_react2.default.createElement(
-					"div",
-					{ className: "title" },
-					"Web applications"
-				),
-				_react2.default.createElement(
-					"div",
-					{ className: "txt" },
-					"Modern, scalable, maintainable Web Apps with the use of up-to-date modern tech stack."
-				),
-				_react2.default.createElement(
-					"div",
-					{ className: "hashtags" },
+					{ key: i, id: "box" + (i + 1), className: "box box" + (i + 1) },
+					_react2.default.createElement("div", { className: "dot" + (i + 1) }),
 					_react2.default.createElement(
 						"div",
-						{ className: "item" },
-						_react2.default.createElement("i", { className: "fa fa-mobile" }),
-						" Responsive"
+						{ id: "icon" + (i + 1), className: "icon" },
+						_react2.default.createElement("i", { className: "fa fa-4x fa-" + v.icon })
 					),
 					_react2.default.createElement(
 						"div",
-						{ className: "item" },
-						_react2.default.createElement("i", { className: "fa fa-line-chart" }),
-						" Scalable"
+						{ className: "title" },
+						v.title
 					),
 					_react2.default.createElement(
 						"div",
-						{ className: "item" },
-						_react2.default.createElement("i", { className: "fa fa-archive" }),
-						" Cache"
+						{ className: "txt" },
+						v.txt
 					),
 					_react2.default.createElement(
 						"div",
-						{ className: "item" },
-						_react2.default.createElement("i", { className: "fa fa-globe" }),
-						" Multilingual"
+						{ className: "hashtags" },
+						v.hashtags.map(function (vH, iH) {
+							return _react2.default.createElement(
+								"div",
+								{ key: iH, className: "item",
+									onMouseOver: function onMouseOver(e) {
+										return hashOver(i, iH + 1);
+									}, onMouseOut: function onMouseOut(e) {
+										return hashOut(i, iH + 1);
+									} },
+								_react2.default.createElement("i", { className: "fa fa-" + vH.icon }),
+								" ",
+								vH.txt
+							);
+						})
 					),
-					_react2.default.createElement(
-						"div",
-						{ className: "item" },
-						_react2.default.createElement("i", { className: "fa fa-exchange" }),
-						" REST"
-					),
-					_react2.default.createElement(
-						"div",
-						{ className: "item" },
-						_react2.default.createElement("i", { className: "fa fa-file" }),
-						" SPA"
-					)
-				)
-			),
-			_react2.default.createElement(
-				"div",
-				{ id: "box2", className: "box" },
-				_react2.default.createElement("div", { className: "dot2" }),
-				_react2.default.createElement(
-					"div",
-					{ id: "icon2", className: "icon" },
-					_react2.default.createElement("i", { className: "fa fa-4x fa-mobile" })
-				),
-				_react2.default.createElement(
-					"div",
-					{ className: "title" },
-					"Mobile applications"
-				),
-				_react2.default.createElement(
-					"div",
-					{ className: "txt" },
-					"Hybrid mobile apps that can be published on both Google Play and App store."
-				),
-				_react2.default.createElement(
-					"div",
-					{ className: "hashtags" },
-					_react2.default.createElement(
-						"div",
-						{ className: "item" },
-						_react2.default.createElement("i", { className: "fa fa-mobile" }),
-						" Hybrid"
-					),
-					_react2.default.createElement(
-						"div",
-						{ className: "item" },
-						_react2.default.createElement("i", { className: "fa fa-android" }),
-						" Play store"
-					),
-					_react2.default.createElement(
-						"div",
-						{ className: "item" },
-						_react2.default.createElement("i", { className: "fa fa-apple" }),
-						" App store"
-					),
-					_react2.default.createElement(
-						"div",
-						{ className: "item" },
-						_react2.default.createElement("i", { className: "fa fa-download" }),
-						" Updates"
-					)
-				)
-			),
-			_react2.default.createElement(
-				"div",
-				{ id: "box3", className: "box" },
-				_react2.default.createElement("div", { className: "dot3" }),
-				_react2.default.createElement(
-					"div",
-					{ id: "icon3", className: "icon" },
-					_react2.default.createElement("i", { className: "fa fa-4x fa-book" })
-				),
-				_react2.default.createElement(
-					"div",
-					{ className: "title" },
-					"Libraries/Plugins"
-				),
-				_react2.default.createElement(
-					"div",
-					{ className: "txt" },
-					"Javascript libraries and plugins. Open-source projects for developers."
-				),
-				_react2.default.createElement(
-					"div",
-					{ className: "hashtags" },
-					_react2.default.createElement(
-						"div",
-						{ className: "item" },
-						_react2.default.createElement("i", { className: "fa fa-star" }),
-						" npm"
-					),
-					_react2.default.createElement(
-						"div",
-						{ className: "item" },
-						_react2.default.createElement("i", { className: "fa fa-github" }),
-						" Github"
-					),
-					_react2.default.createElement(
-						"div",
-						{ className: "item" },
-						_react2.default.createElement("i", { className: "fa fa-code" }),
-						" Prototyping"
-					),
-					_react2.default.createElement(
-						"div",
-						{ className: "item" },
-						_react2.default.createElement("i", { className: "fa fa-plug" }),
-						" Plugins"
-					)
-				)
-			)
+					v.hashtags.map(function (vH2, iH2) {
+						return _react2.default.createElement(
+							"div",
+							{ key: iH2 },
+							_react2.default.createElement(
+								"div",
+								{ id: "hover" + i + "-" + (iH2 + 1), className: "hover hover" + (iH2 + 1) },
+								_react2.default.createElement(
+									"div",
+									{ className: "hover-title" },
+									vH2.infoTitle
+								),
+								_react2.default.createElement(
+									"div",
+									{ className: "hover-txt" },
+									vH2.infoTxt
+								)
+							),
+							_react2.default.createElement("div", { id: "hoverIndex" + i + "-" + (iH2 + 1),
+								className: "hoverIndex hoverIndex" + (iH2 + 1) })
+						);
+					})
+				);
+			})
 		)
 	);
 };
@@ -26466,9 +26373,13 @@ var login_str = "LOGIN";
 var en = {
 	head: ['TECH', 'WORK', 'CONTACT']
 };
+var el = {
+	head: ['Τεχνολογια', 'Εμπειρεια', 'Επικοινωνια']
+};
 
 exports.login_str = login_str;
 exports.en = en;
+exports.el = el;
 
 },{}],260:[function(require,module,exports){
 'use strict';
@@ -26679,9 +26590,8 @@ var Contact = function (_Component) {
 
 	}, {
 		key: 'socialOverH',
-		value: function socialOverH(i) {
-			console.log(i);
-			console.log(this.hoveredEl);
+		value: function socialOverH(e, i) {
+			e.preventDefault();
 			if (this.hoveredEl != i) {
 				var el = document.getElementById("cube" + i);
 				el.style.animation = "spinVertical linear 0.5s 1 forwards";
@@ -26931,7 +26841,75 @@ var Main = function (_Component) {
 	function Main(props) {
 		_classCallCheck(this, Main);
 
-		return _possibleConstructorReturn(this, (Main.__proto__ || Object.getPrototypeOf(Main)).call(this, props));
+		var _this = _possibleConstructorReturn(this, (Main.__proto__ || Object.getPrototypeOf(Main)).call(this, props));
+
+		_this.hashOver = _this.hashOverH.bind(_this);
+		_this.hashOut = _this.hashOutH.bind(_this);
+
+		_this.state = {
+			box: [{
+				icon: "desktop",
+				title: "Web applications",
+				txt: "Modern, scalable, maintainable Web Apps with the use of modern tech stack.",
+				hashtags: [{
+					icon: "mobile",
+					txt: "Responsive",
+					infoTitle: "Responsive Design",
+					infoTxt: "Responsive Web Design makes your web page look good on all devices" + " (desktops, tablets, and phones).\n" + "Resize, hide, shrink, enlarge, or move the content to make it fit" + " on any screen" }, {
+					icon: "line-chart",
+					txt: "SPA",
+					infoTitle: "Single Page Applications",
+					infoTxt: "Wrapping the web app in a single page offers faster " + "rendering and loading time of the page in the browser.\n" + "Resources are dynamically loaded and added to the page as necessary."
+				}, {
+					icon: "globe",
+					txt: "Multilingual",
+					infoTitle: "Website in many languages",
+					infoTxt: "Running a unilingual website and a multilingual website are actually" + "the same.\nCreating a website in many languages does not require " + "much effort and has a lot of benefits for the client."
+
+				}]
+			}, {
+				icon: "mobile",
+				title: "Mobile applications",
+				txt: "Hybrid mobile apps that can be published on both Google Play and App store.",
+				hashtags: [{
+					icon: "android",
+					txt: "Android",
+					infoTitle: "Android app",
+					infoTxt: "Android apps can be published with little cost and time to the " + "Google Play store from where it is available to millions of users."
+				}, {
+					icon: "apple",
+					txt: "Apple",
+					infoTitle: "Apple app",
+					infoTxt: "An app can be published to iTunes and grants access to all the " + "Apple products users"
+				}, {
+					icon: "download",
+					txt: "Updates",
+					infoTitle: "Mobile App updates",
+					infoTxt: "Updating the mobile app with the latest features and bug " + " automatically on both Android and Apple store."
+				}]
+			}, {
+				icon: "book",
+				title: "Libraries/Plugins",
+				txt: "Javascript libraries and plugins. Open-source projects for developers.",
+				hashtags: [{
+					icon: "star",
+					txt: "npm",
+					infoTitle: "Node Package Manager",
+					infoTxt: "npm is an online repository for the publishing of open-source Node.js" + " projects.\nIt offers automated dependency" + " and can be used by developers."
+				}, {
+					icon: "github",
+					txt: "GitHub",
+					infoTitle: "GitHub",
+					infoTxt: "GitHub is a version control system that manages and stores" + " revisions of projects."
+				}, {
+					icon: "code",
+					txt: "Prototypes",
+					infoTitle: "Prototype",
+					infoTxt: "Incomplete versions of the web app being developed that can be viewed" + " by the client in order to create a valuable feedback that will help" + " improve the final released app."
+				}]
+			}]
+		};
+		return _this;
 	}
 
 	_createClass(Main, [{
@@ -26956,8 +26934,8 @@ var Main = function (_Component) {
 			//hashtags
 			for (var _i2 = 0; _i2 < document.getElementsByClassName("item").length; _i2++) {
 				(function (x) {
-					var delay = 0.5 * x;
-					var anime = "popup linear 0.5s " + delay + "s 1 forwards";
+					var delay = 0.75 * x;
+					var anime = "popup linear 0.75s " + delay + "s 1 forwards";
 					document.getElementsByClassName("item")[x].style.animation = anime;
 				})(_i2);
 			}
@@ -26966,12 +26944,33 @@ var Main = function (_Component) {
 		key: 'componentWillUnmount',
 		value: function componentWillUnmount() {}
 	}, {
+		key: 'hashOverH',
+		value: function hashOverH(block, i) {
+			var el = document.getElementById("hoverIndex" + block + "-" + i);
+			var elMain = document.getElementById("hover" + block + "-" + i);
+			el.style.display = "block";
+			elMain.style.display = "block";
+			el.style.animation = "tsoup 0.5s 1 forwards";
+			elMain.style.animation = "tsoup 0.5s 1 forwards";
+		}
+	}, {
+		key: 'hashOutH',
+		value: function hashOutH(block, i) {
+			var el = document.getElementById("hoverIndex" + block + "-" + i);
+			var elMain = document.getElementById("hover" + block + "-" + i);
+			el.style.display = "none";
+			elMain.style.display = "none";
+			el.style.animation = "";
+			elMain.style.animation = "";
+		}
+	}, {
 		key: 'render',
 		value: function render() {
 			return _react2.default.createElement(
 				'div',
 				null,
-				_react2.default.createElement(_Main2.default, { lang: this.props.lang })
+				_react2.default.createElement(_Main2.default, { state: this.state, lang: this.props.lang,
+					hashOver: this.hashOver, hashOut: this.hashOut })
 			);
 		}
 	}]);
