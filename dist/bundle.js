@@ -26483,6 +26483,7 @@ var Contact = function (_Component) {
 	_createClass(Contact, [{
 		key: 'componentDidMount',
 		value: function componentDidMount(e) {
+			document.title = "CXI - Contact";
 			//letters of title
 			for (var i = 0; i < document.getElementsByClassName("letters").length; i++) {
 				(function (x) {
@@ -27169,6 +27170,7 @@ var Tech = function (_Component) {
 	_createClass(Tech, [{
 		key: 'componentDidMount',
 		value: function componentDidMount(e) {
+			document.title = "CXI - Tech stack";
 			//letters of title
 			for (var i = 0; i < document.getElementsByClassName("letters").length; i++) {
 				(function (x) {
@@ -27440,6 +27442,7 @@ var Work = function (_Component) {
 	_createClass(Work, [{
 		key: 'componentDidMount',
 		value: function componentDidMount() {
+			document.title = "CXI - Work & experience";
 			// title 
 			for (var i = 0; i < document.getElementsByClassName("letters").length; i++) {
 				(function (x) {
