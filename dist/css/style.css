@@ -141,6 +141,7 @@ button {
   to {
     opacity: 1; } }
 
+/*shakes*/
 @keyframes right {
   0% {
     transform: translate(0); }
@@ -165,6 +166,7 @@ button {
   100% {
     transform: translate(0); } }
 
+/*scales*/
 @keyframes scale {
   from {
     transform: scale(0); }
@@ -495,7 +497,7 @@ button {
     .header .right:hover {
       color: #90afc5; }
   .header .on {
-    color: #90afc5; }
+    background: #90afc5; }
   .header .mobile {
     display: none; }
   .header .mobileBar {
@@ -692,6 +694,7 @@ button {
       .main .boxes .box .hashtags {
         overflow: auto;
         margin: 20px 0 0 0;
+        z-index: 4;
         position: relative; }
         .main .boxes .box .hashtags .item {
           height: 30px;
@@ -711,6 +714,8 @@ button {
             text-shadow: none;
             background: #46464a;
             color: #c99e10; }
+            .main .boxes .box .hashtags .item:hover .dover {
+              display: none; }
         .main .boxes .box .hashtags .item:nth-child(even) {
           background: #20948b;
           color: #f5f5f5; }
@@ -2104,7 +2109,7 @@ button {
         cursor: pointer; }
         .work .timeline .timeRow .project .type {
           position: absolute;
-          top: 25px;
+          top: -20px;
           bottom: auto;
           left: auto;
           right: 17px;
@@ -2112,8 +2117,12 @@ button {
           height: 40px;
           line-height: 40px;
           border-radius: 20px;
+          border: 1px solid #fff;
           background: #984b43;
           color: #fff; }
+          .work .timeline .timeRow .project .type:hover {
+            background: #1e434c;
+            color: #c99e10; }
         .work .timeline .timeRow .project .title {
           height: 30px;
           line-height: 30px;

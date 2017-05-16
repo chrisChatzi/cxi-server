@@ -25804,7 +25804,8 @@ var Main = function Main(_ref) {
 	var state = _ref.state,
 	    lang = _ref.lang,
 	    hashOver = _ref.hashOver,
-	    hashOut = _ref.hashOut;
+	    hashOut = _ref.hashOut,
+	    mover = _ref.mover;
 	return _react2.default.createElement(
 		"div",
 		{ className: "main" },
@@ -26371,7 +26372,8 @@ var login_str = "LOGIN";
 
 //language
 var en = {
-	head: ['TECH', 'WORK', 'CONTACT']
+	head: ['TECH', 'WORK', 'CONTACT'],
+	main: ["Web applications", "Mobile applications", "Libraries/Plugins", "Modern, scalable, maintainable Web Apps with the use of modern tech stack.", "Responsive", "Responsive Design", "Responsive Web Design makes your web page look good on all devices" + " (desktops, tablets, and phones).\n" + "Resize, hide, shrink, enlarge, or move the content to make it fit" + " on any screen"]
 };
 var el = {
 	head: ['Τεχνολογια', 'Εμπειρεια', 'Επικοινωνια']
@@ -26731,8 +26733,8 @@ var Header = function (_Component) {
 		key: 'componentDidMount',
 		value: function componentDidMount() {
 			document.getElementById("head1").style.animation = "tsoup 1s 0s 1 forwards";
-			document.getElementById("head2").style.animation = "tsoup 1s 0.5s 1 forwards";
-			document.getElementById("head3").style.animation = "tsoup 1s 1s 1 forwards";
+			document.getElementById("head2").style.animation = "tsoup 1s 0.25s 1 forwards";
+			document.getElementById("head3").style.animation = "tsoup 1s 0.5s 1 forwards";
 		}
 	}, {
 		key: 'componentWillUnmount',
@@ -26846,6 +26848,9 @@ var Main = function (_Component) {
 
 		_this.hashOver = _this.hashOverH.bind(_this);
 		_this.hashOut = _this.hashOutH.bind(_this);
+		_this.mover = _this.moverH.bind(_this);
+
+		_this.hoverXY = [0, 0];
 
 		_this.state = {
 			box: [{
@@ -26856,7 +26861,8 @@ var Main = function (_Component) {
 					icon: "mobile",
 					txt: "Responsive",
 					infoTitle: "Responsive Design",
-					infoTxt: "Responsive Web Design makes your web page look good on all devices" + " (desktops, tablets, and phones).\n" + "Resize, hide, shrink, enlarge, or move the content to make it fit" + " on any screen" }, {
+					infoTxt: "Responsive Web Design makes your web page look good on all devices" + " (desktops, tablets, and phones).\n" + "Resize, hide, shrink, enlarge, or move the content to make it fit" + " on any screen"
+				}, {
 					icon: "line-chart",
 					txt: "SPA",
 					infoTitle: "Single Page Applications",
@@ -26865,7 +26871,7 @@ var Main = function (_Component) {
 					icon: "globe",
 					txt: "Multilingual",
 					infoTitle: "Website in many languages",
-					infoTxt: "Running a unilingual website and a multilingual website are actually" + "the same.\nCreating a website in many languages does not require " + "much effort and has a lot of benefits for the client."
+					infoTxt: "Running a unilingual website and a multilingual website demands almost" + " the same workload.\n" + "Creating a website in many languages does not require " + "much effort and has a lot of benefits for the client."
 
 				}]
 			}, {
@@ -26966,13 +26972,23 @@ var Main = function (_Component) {
 			elMain.style.animation = "";
 		}
 	}, {
+		key: 'moverH',
+		value: function moverH(e, i) {
+			var el = document.getElementById("dover" + i);
+			// el.style.display = "block";
+			// el.style.top = e.nativeEvent.offsetY+"px";
+			// el.style.left = e.nativeEvent.offsetX+"px";
+			// el.style.animation = "pulse 1s infinite"
+			// this.hoverXY = [e.nativeEvent.offsetX, e.nativeEvent.offsetY]
+		}
+	}, {
 		key: 'render',
 		value: function render() {
 			return _react2.default.createElement(
 				'div',
 				null,
 				_react2.default.createElement(_Main2.default, { state: this.state, lang: this.props.lang,
-					hashOver: this.hashOver, hashOut: this.hashOut })
+					hashOver: this.hashOver, hashOut: this.hashOut, mover: this.mover })
 			);
 		}
 	}]);
