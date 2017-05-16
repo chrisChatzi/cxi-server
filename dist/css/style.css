@@ -494,7 +494,7 @@ button {
     letter-spacing: 0.05em;
     opacity: 0;
     cursor: pointer; }
-    .header .right:hover {
+    .header .right:not(.on):hover {
       color: #90afc5; }
   .header .on {
     background: #90afc5; }
