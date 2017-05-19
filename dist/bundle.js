@@ -35717,7 +35717,7 @@ module.exports = warning;
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-exports.route = undefined;
+exports.filter_projects = exports.route = undefined;
 
 require("./general/logic.js");
 
@@ -35725,6 +35725,12 @@ var route = exports.route = function route(path) {
     return {
         type: "ROUTE",
         path: path
+    };
+};
+var filter_projects = exports.filter_projects = function filter_projects(projects) {
+    return {
+        type: "filter_projects",
+        projects: projects
     };
 };
 
@@ -36000,9 +36006,7 @@ var Contact = function Contact(_ref) {
 								_react2.default.createElement("div", { className: "face5" }),
 								_react2.default.createElement(
 									"div",
-									{ className: "face6", onMouseOver: function onMouseOver() {
-											return socialOver(2);
-										} },
+									{ className: "face6" },
 									"GitHub"
 								)
 							)
@@ -36102,7 +36106,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 var Header = function Header(_ref) {
 	var _React$createElement, _React$createElement2;
 
-	var state = _ref.state,
+	var a = _ref.a,
+	    state = _ref.state,
 	    lang = _ref.lang,
 	    path = _ref.path,
 	    route = _ref.route,
@@ -36141,6 +36146,11 @@ var Header = function Header(_ref) {
 					return route("tech");
 				}), _React$createElement2),
 				lang.head[0]
+			),
+			_react2.default.createElement(
+				"div",
+				null,
+				a
 			)
 		),
 		_react2.default.createElement(
@@ -36584,10 +36594,11 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var Work = function Work(_ref) {
 	var state = _ref.state,
-	    lang = _ref.lang,
+	    projects = _ref.projects,
 	    mover = _ref.mover,
 	    mout = _ref.mout,
-	    clickProject = _ref.clickProject;
+	    clickProject = _ref.clickProject,
+	    filter = _ref.filter;
 	return _react2.default.createElement(
 		"div",
 		{ className: "work" },
@@ -36688,9 +36699,98 @@ var Work = function Work(_ref) {
 		),
 		_react2.default.createElement(
 			"div",
+			{ className: "info" },
+			_react2.default.createElement(
+				"div",
+				{ className: state.filter == "desktop" ? "item active" : "item",
+					onClick: function onClick() {
+						return filter("desktop");
+					}, title: "Click to filter Web Apps" },
+				_react2.default.createElement(
+					"div",
+					{ className: "round filterType" },
+					_react2.default.createElement("i", { className: "fa fa-desktop" })
+				),
+				_react2.default.createElement(
+					"div",
+					{ className: "txt filterTxt" },
+					"Web app"
+				)
+			),
+			_react2.default.createElement(
+				"div",
+				{ className: state.filter == "phone" ? "item active" : "item",
+					onClick: function onClick() {
+						return filter("phone");
+					}, title: "Click to filter Mobile Apps" },
+				_react2.default.createElement(
+					"div",
+					{ className: "round filterType" },
+					_react2.default.createElement("i", { className: "fa fa-phone" })
+				),
+				_react2.default.createElement(
+					"div",
+					{ className: "txt filterTxt" },
+					"Mobile app"
+				)
+			),
+			_react2.default.createElement(
+				"div",
+				{ className: state.filter == "book" ? "item active" : "item",
+					onClick: function onClick() {
+						return filter("book");
+					}, title: "Click to filter Libraries" },
+				_react2.default.createElement(
+					"div",
+					{ className: "round filterType" },
+					_react2.default.createElement("i", { className: "fa fa-book" })
+				),
+				_react2.default.createElement(
+					"div",
+					{ className: "txt filterTxt" },
+					"JS Library"
+				)
+			),
+			_react2.default.createElement(
+				"div",
+				{ className: state.filter == "graduation-cap" ? "item active" : "item",
+					onClick: function onClick() {
+						return filter("graduation-cap");
+					}, title: "Click to filter Education" },
+				_react2.default.createElement(
+					"div",
+					{ className: "round filterType" },
+					_react2.default.createElement("i", { className: "fa fa-graduation-cap" })
+				),
+				_react2.default.createElement(
+					"div",
+					{ className: "txt filterTxt" },
+					"Education"
+				)
+			),
+			_react2.default.createElement(
+				"div",
+				{ className: state.filter == "building" ? "item active" : "item",
+					onClick: function onClick() {
+						return filter("building");
+					}, title: "Click to filter Work History" },
+				_react2.default.createElement(
+					"div",
+					{ className: "round filterType" },
+					_react2.default.createElement("i", { className: "fa fa-building" })
+				),
+				_react2.default.createElement(
+					"div",
+					{ className: "txt filterTxt" },
+					"Company"
+				)
+			)
+		),
+		_react2.default.createElement(
+			"div",
 			{ className: "timeline" },
-			_react2.default.createElement("div", { className: "grammh" }),
-			state.projects.map(function (v, i) {
+			_react2.default.createElement("div", { id: "grammh", className: "grammh" }),
+			projects.map(function (v, i) {
 				return _react2.default.createElement(
 					"div",
 					{ className: "timeRow", key: i },
@@ -36730,13 +36830,13 @@ var Work = function Work(_ref) {
 							{ className: "title" },
 							_react2.default.createElement(
 								"span",
-								{ className: "highlight" },
+								{ className: state.filter == v.type ? "highlight active" : "highlight" },
 								v.name
 							)
 						),
 						_react2.default.createElement(
 							"div",
-							{ className: "type", title: v.title },
+							{ className: state.filter == v.type ? "type active" : "type", title: v.title },
 							_react2.default.createElement("i", { className: 'fa fa-' + v.type })
 						),
 						_react2.default.createElement(
@@ -36781,9 +36881,100 @@ var el = {
 	head: ['Τεχνολογια', 'Εμπειρεια', 'Επικοινωνια']
 };
 
+var workProjects = [{
+	date: "May 2017",
+	name: "Kentro-jeans",
+	type: "desktop",
+	title: "Web app",
+	descr: "E-commerce site for online clothes selling",
+	link: "https://kentro-jeans.herokuapp.com",
+	lang: ["React/Redux", "Node.js", "mongoDB"]
+}, {
+	date: "August 2016",
+	name: "h2n website",
+	type: "desktop",
+	title: "Web app",
+	descr: "h2n's official website\nh2n GmbH",
+	link: "https://h2n.io/",
+	lang: ["Phonegap", "React/Redux", "SQLite"]
+}, {
+	date: "July 2016",
+	name: "react-redux-chart",
+	type: "book",
+	title: "Npm package",
+	descr: "Package for creating charts for react-redux developing.\nnpm Package",
+	link: "https://www.npmjs.com/package/react-redux-chart",
+	lang: ["Javascript", "React/Redux"]
+}, {
+	date: "May 2016",
+	name: "websql-json",
+	type: "book",
+	title: "Npm package",
+	descr: "Web sqlite access library. Communicate with JSON strings.\nnpm Package",
+	link: "https://www.npmjs.com/package/websql-json",
+	lang: ["Javascript", "SQLite", "JSON"]
+}, {
+	date: "April 2016",
+	name: "Werner Control",
+	type: "phone",
+	title: "Mobile app",
+	descr: "Mobile app for an h2n client\nh2n GmbH",
+	link: "https://play.google.com/store/apps/details?id=com.tele_online.app",
+	lang: ["Phonegap", "Backbone.js", "SQLite"]
+}, {
+	date: "March 2016",
+	name: "ajax-query",
+	type: "book",
+	title: "Npm package",
+	descr: "Ajax library with the use of jQuery for implementing ajax calls.\nnpm Package",
+	link: "https://www.npmjs.com/package/ajax-query",
+	lang: ["Javascript", "AJAX", "jQuery", "bower"]
+}, {
+	date: "January 2016",
+	name: "h2n Control",
+	type: "phone",
+	title: "Mobile app",
+	descr: "Mobile app for controling h2n devices\nh2n GmbH",
+	link: "https://play.google.com/store/apps/details?id=com.home2net.ctrl",
+	lang: ["Phonegap", "Backbone JS", "SQLite"]
+}, {
+	date: "January 2015",
+	name: "EOS Sauna",
+	type: "phone",
+	title: "Mobile app",
+	descr: "Mobile app for controling sauna devices\nh2n GmbH",
+	link: "https://play.google.com/store/apps/details?id=de.eos_sauna.sauna_control",
+	lang: ["Javascript", "HTML", "CSS", "SQLite"]
+}, {
+	date: "January 2014",
+	name: "Joined h2n GmbH",
+	type: "building",
+	title: "Work",
+	descr: "Web Developer\nRegensburg, Germany",
+	link: "https://h2n.io/",
+	lang: ["Frontend", "Mobile", "DB", "Backend"]
+}, {
+	date: "September 2013",
+	name: "MSc in Advanced Internet Applications",
+	type: "graduation-cap",
+	title: "Education",
+	descr: "Heriot-Watt University\nEdinburgh, UK",
+	link: "https://www.hw.ac.uk",
+	lang: ["Javascript, Huskell, Java"]
+}, {
+	date: "April 2012",
+	name: "BSc in Industrial Informatics",
+	type: "graduation-cap",
+	title: "Education",
+	descr: "Kavala Institution of Technology\nKavala, Greece",
+	link: "http://iiwm.teikav.edu.gr/iinew/",
+	lang: ["C++, Java, SQL"]
+}];
+
 exports.login_str = login_str;
 exports.en = en;
 exports.el = el;
+exports.workProjects = workProjects;
 
 },{}],262:[function(require,module,exports){
 'use strict';
@@ -36803,6 +36994,8 @@ var _reactRedux = require('react-redux');
 var _Contact = require('../components/Contact.js');
 
 var _Contact2 = _interopRequireDefault(_Contact);
+
+var _actions = require('../actions.js');
 
 var _ajaxQuery = require('ajax-query');
 
@@ -36824,12 +37017,15 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 function mapStateToProps(state) {
 	return {
-		lang: state.main.lang
+		route: state.main.path
 	};
 }
 
 function mapDispatchToProps(dispatch) {
 	return {
+		route: function route() {
+			dispatch((0, _actions.route)("contact"));
+		},
 		change_path: function (_change_path) {
 			function change_path(_x, _x2, _x3) {
 				return _change_path.apply(this, arguments);
@@ -36937,6 +37133,8 @@ var Contact = function (_Component) {
 				x++;
 				if (x == 5) x = 1;
 			}, 4000);
+
+			if (this.props.route != "contact") this.props.route();
 		}
 	}, {
 		key: 'componentWillUnmount',
@@ -36998,7 +37196,7 @@ var Contact = function (_Component) {
 					contentType: "application/json; charset=utf-8",
 					data: {
 						"name": this.state.name,
-						"email": this.state.email,
+						"email": this.state.mail,
 						"title": this.state.title,
 						"txt": this.state.txt
 					}
@@ -37014,7 +37212,6 @@ var Contact = function (_Component) {
 	}, {
 		key: 'socialOverH',
 		value: function socialOverH(e, i) {
-			e.preventDefault();
 			if (this.hoveredEl != i) {
 				var el = document.getElementById("cube" + i);
 				el.style.animation = "spinVertical linear 0.5s 1 forwards";
@@ -37075,7 +37272,7 @@ var Contact = function (_Component) {
 
 exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Contact);
 
-},{"../components/Contact.js":256,"../history.js":268,"ajax-query":1,"react":230,"react-redux":178}],263:[function(require,module,exports){
+},{"../actions.js":255,"../components/Contact.js":256,"../history.js":268,"ajax-query":1,"react":230,"react-redux":178}],263:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -37180,7 +37377,7 @@ var Header = function (_Component) {
 			return _react2.default.createElement(
 				'div',
 				null,
-				_react2.default.createElement(_Header2.default, { state: this.state, lang: this.props.lang, path: this.props.path,
+				_react2.default.createElement(_Header2.default, { a: true, state: this.state, lang: this.props.lang, path: this.props.path,
 					route: this.route, openMobileMenu: this.openMobileMenu })
 			);
 		}
@@ -37322,12 +37519,12 @@ var Main = function (_Component) {
 					icon: "star",
 					txt: "npm",
 					infoTitle: "Node Package Manager",
-					infoTxt: "npm is an online repository for the publishing of open-source Node.js" + " projects.\nIt offers automated dependency" + " and can be used by developers."
+					infoTxt: "If you are a developer you may find useful npm packages for " + "frontend or backend development."
 				}, {
 					icon: "github",
 					txt: "GitHub",
 					infoTitle: "GitHub",
-					infoTxt: "GitHub is a version control system that manages and stores" + " revisions of projects."
+					infoTxt: "Pull, star or just check the open-source free to share code examples" + " or full applications. The code structuring, the tools used and the " + " programming techniques can be useful and tutoring."
 				}, {
 					icon: "code",
 					txt: "Prototypes",
@@ -37437,11 +37634,7 @@ var _Tech = require('../components/Tech.js');
 
 var _Tech2 = _interopRequireDefault(_Tech);
 
-require('../actions.js');
-
-var _history = require('../history.js');
-
-var _history2 = _interopRequireDefault(_history);
+var _actions = require('../actions.js');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -37455,12 +37648,15 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 function mapStateToProps(state) {
 	return {
-		lang: state.main.lang
+		route: state.main.path
 	};
 }
 
 function mapDispatchToProps(dispatch) {
 	return {
+		route: function route() {
+			dispatch((0, _actions.route)("tech"));
+		},
 		change_path: function (_change_path) {
 			function change_path(_x, _x2, _x3) {
 				return _change_path.apply(this, arguments);
@@ -37631,6 +37827,8 @@ var Tech = function (_Component) {
 					document.getElementsByClassName("block2")[x].style.animation = anime;
 				})(_i2);
 			}
+
+			if (this.props.route != "tech") this.props.route();
 		}
 	}, {
 		key: 'componentWillUnmount',
@@ -37713,7 +37911,7 @@ var Tech = function (_Component) {
 
 exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Tech);
 
-},{"../actions.js":255,"../components/Tech.js":259,"../history.js":268,"react":230,"react-redux":178}],266:[function(require,module,exports){
+},{"../actions.js":255,"../components/Tech.js":259,"react":230,"react-redux":178}],266:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -37738,6 +37936,8 @@ var _history = require('../history.js');
 
 var _history2 = _interopRequireDefault(_history);
 
+var _constants = require('../constants.js');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -37750,15 +37950,18 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 function mapStateToProps(state) {
 	return {
-		lang: state.main.lang,
-		path: state.main.path
+		route: state.main.path,
+		projects: state.main.projects
 	};
 }
 
 function mapDispatchToProps(dispatch) {
 	return {
-		route: function route(path) {
-			dispatch((0, _actions.route)(path));
+		route: function route() {
+			dispatch((0, _actions.route)("work"));
+		},
+		filterProjects: function filterProjects(projects) {
+			dispatch((0, _actions.filter_projects)(projects));
 		}
 	};
 }
@@ -37779,100 +37982,14 @@ var Work = function (_Component) {
 		var _this = _possibleConstructorReturn(this, (Work.__proto__ || Object.getPrototypeOf(Work)).call(this, props));
 
 		_this.state = {
-			projects: [{
-				date: "May 2017",
-				name: "Kentro-jeans",
-				type: "desktop",
-				title: "Web app",
-				descr: "E-commerce site for online clothes selling",
-				link: "https://kentro-jeans.herokuapp.com",
-				lang: ["React/Redux", "Node.js", "mongoDB"]
-			}, {
-				date: "August 2016",
-				name: "h2n website",
-				type: "desktop",
-				title: "Web app",
-				descr: "h2n's official website\nh2n GmbH",
-				link: "https://h2n.io/",
-				lang: ["Phonegap", "React/Redux", "SQLite"]
-			}, {
-				date: "July 2016",
-				name: "react-redux-chart",
-				type: "book",
-				title: "Npm package",
-				descr: "Package for creating charts for react-redux developing.\nnpm Package",
-				link: "https://www.npmjs.com/package/react-redux-chart",
-				lang: ["Javascript", "React/Redux"]
-			}, {
-				date: "May 2016",
-				name: "websql-json",
-				type: "book",
-				title: "Npm package",
-				descr: "Web sqlite access library. Communicate with JSON strings.\nnpm Package",
-				link: "https://www.npmjs.com/package/websql-json",
-				lang: ["Javascript", "SQLite", "JSON"]
-			}, {
-				date: "April 2016",
-				name: "Werner Control",
-				type: "phone",
-				title: "Mobile app",
-				descr: "Mobile app for an h2n client\nh2n GmbH",
-				link: "https://play.google.com/store/apps/details?id=com.tele_online.app",
-				lang: ["Phonegap", "Backbone.js", "SQLite"]
-			}, {
-				date: "March 2016",
-				name: "ajax-query",
-				type: "book",
-				title: "Npm package",
-				descr: "Ajax library with the use of jQuery for implementing ajax calls.\nnpm Package",
-				link: "https://www.npmjs.com/package/ajax-query",
-				lang: ["Javascript", "AJAX", "jQuery", "bower"]
-			}, {
-				date: "January 2016",
-				name: "h2n Control",
-				type: "phone",
-				title: "Mobile app",
-				descr: "Mobile app for controling h2n devices\nh2n GmbH",
-				link: "https://play.google.com/store/apps/details?id=com.home2net.ctrl",
-				lang: ["Phonegap", "Backbone JS", "SQLite"]
-			}, {
-				date: "January 2015",
-				name: "EOS Sauna",
-				type: "phone",
-				title: "Mobile app",
-				descr: "Mobile app for controling sauna devices\nh2n GmbH",
-				link: "https://play.google.com/store/apps/details?id=de.eos_sauna.sauna_control",
-				lang: ["Javascript", "HTML", "CSS", "SQLite"]
-			}, {
-				date: "January 2014",
-				name: "Joined h2n GmbH",
-				type: "building",
-				title: "Work",
-				descr: "Web Developer\nRegensburg, Germany",
-				link: "https://h2n.io/",
-				lang: ["Frontend", "Mobile", "DB", "Backend"]
-			}, {
-				date: "September 2013",
-				name: "MSc in Advanced Internet Applications",
-				type: "graduation-cap",
-				title: "Education",
-				descr: "Heriot-Watt University\nEdinburgh, UK",
-				link: "https://www.hw.ac.uk",
-				lang: ["Javascript, Huskell, Java"]
-			}, {
-				date: "April 2012",
-				name: "BSc in Industrial Informatics",
-				type: "graduation-cap",
-				title: "Education",
-				descr: "Kavala Institution of Technology\nKavala, Greece",
-				link: "http://iiwm.teikav.edu.gr/iinew/",
-				lang: ["C++, Java, SQL"]
-			}]
+			filter: "",
+			projects: _constants.workProjects
 		};
 
 		_this.mover = _this.moverH.bind(_this);
 		_this.mout = _this.moutH.bind(_this);
 		_this.clickProject = _this.clickProjectH.bind(_this);
+		_this.filter = _this.filterH.bind(_this);
 		return _this;
 	}
 
@@ -37888,8 +38005,18 @@ var Work = function (_Component) {
 					document.getElementsByClassName("letters")[x].style.animation = anime;
 				})(i);
 			}
+			//filter
+			for (var _i = 0; _i < document.getElementsByClassName("filterType").length; _i++) {
+				(function (x) {
+					var delay = 0.1 * x;
+					var anime = "popup linear 0.5s " + delay + "s 1 forwards";
+					var anime2 = "fall linear 0.5s " + delay + "s 1 forwards";
+					document.getElementsByClassName("filterType")[x].style.animation = anime;
+					document.getElementsByClassName("filterTxt")[x].style.animation = anime2;
+				})(_i);
+			}
 			// projects 
-			for (var _i = 0; _i < document.getElementsByClassName("point").length; _i++) {
+			for (var _i2 = 0; _i2 < document.getElementsByClassName("point").length; _i2++) {
 				(function (x) {
 					var delay = 0.5 * x;
 					var anime = "letter linear 0.5s " + delay + "s 1 forwards";
@@ -37907,22 +38034,27 @@ var Work = function (_Component) {
 						document.getElementsByClassName("index")[x].style.animation = anime6;
 					}
 					document.getElementsByClassName("project")[x].style.animation = anime4;
-				})(_i);
+				})(_i2);
 			}
-			for (var _i2 = 0; _i2 < document.getElementsByClassName("lang").length; _i2++) {
+			for (var _i3 = 0; _i3 < document.getElementsByClassName("lang").length; _i3++) {
 				(function (x) {
 					var delay = 0.3 * x;
 					var anime = "letter linear 0.5s " + delay + "s 1 forwards";
 					document.getElementsByClassName("lang")[x].style.animation = anime;
-				})(_i2);
+				})(_i3);
 			}
-			for (var _i3 = 0; _i3 < document.getElementsByClassName("type").length; _i3++) {
+			for (var _i4 = 0; _i4 < document.getElementsByClassName("type").length; _i4++) {
 				(function (x) {
 					var delay = 1 * x;
 					var anime = "letter linear 1s " + delay + "s 1 forwards";
 					document.getElementsByClassName("type")[x].style.animation = anime;
-				})(_i3);
+				})(_i4);
 			}
+			////
+			var th = 198.18 * document.getElementsByClassName("timeRow").length;
+			document.getElementById("grammh").style.height = th + "px";
+
+			if (this.props.route != "work") this.props.route();
 		}
 		//mouse over/out
 
@@ -37942,7 +38074,7 @@ var Work = function (_Component) {
 			document.getElementById("point" + i).style.background = "";
 			document.getElementById("index" + i).style.background = "";
 		}
-		//click project
+		//click project to open it in new browser tab
 
 	}, {
 		key: 'clickProjectH',
@@ -37950,14 +38082,33 @@ var Work = function (_Component) {
 			var win = window.open(this.state.projects[i].link, '_blank');
 			win.focus();
 		}
+		//filter by type
+
+	}, {
+		key: 'filterH',
+		value: function filterH(type) {
+			var newType = this.state.filter == type ? "" : type;
+			this.setState({ filter: newType });
+			var projects = _constants.workProjects;
+			var filteredProjects = [];
+			if (newType) {
+				projects.map(function (v, i) {
+					if (v.type.indexOf(type) >= 0) filteredProjects.push(v);
+				});
+			} else filteredProjects = projects;
+			this.props.filterProjects(filteredProjects);
+			var th = 210 * (filteredProjects.length - 1);
+			document.getElementById("grammh").style.height = th + 50 + "px";
+		}
 	}, {
 		key: 'render',
 		value: function render() {
 			return _react2.default.createElement(
 				'div',
 				null,
-				_react2.default.createElement(_Work2.default, { state: this.state, lang: this.props.lang,
-					mover: this.mover, mout: this.mout, clickProject: this.clickProject })
+				_react2.default.createElement(_Work2.default, { state: this.state, projects: this.props.projects,
+					mover: this.mover, mout: this.mout,
+					clickProject: this.clickProject, filter: this.filter })
 			);
 		}
 	}]);
@@ -37967,7 +38118,7 @@ var Work = function (_Component) {
 
 exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Work);
 
-},{"../actions.js":255,"../components/Work.js":260,"../history.js":268,"react":230,"react-redux":178}],267:[function(require,module,exports){
+},{"../actions.js":255,"../components/Work.js":260,"../constants.js":261,"../history.js":268,"react":230,"react-redux":178}],267:[function(require,module,exports){
 "use strict";
 
 },{}],268:[function(require,module,exports){
@@ -38067,7 +38218,8 @@ var main = {
 	path: "main",
 	langIdx: 0,
 	lang: _constants.en,
-	langStr: "en"
+	langStr: "en",
+	projects: _constants.workProjects
 };
 
 exports.default = { main: main };
@@ -38094,21 +38246,15 @@ var reducer = (0, _redux.combineReducers)({
 exports.default = reducer;
 
 },{"./main":272,"redux":237}],272:[function(require,module,exports){
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
-var _initialState = require('../initialState');
+var _initialState = require("../initialState");
 
 var _initialState2 = _interopRequireDefault(_initialState);
-
-var _constants = require('../constants.js');
-
-var _history = require('../history.js');
-
-var _history2 = _interopRequireDefault(_history);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -38123,6 +38269,11 @@ var state_update = function state_update() {
 				newstate.path = action.path;
 				return newstate;
 			}
+		case "filter_projects":
+			{
+				newstate.projects = action.projects;
+				return newstate;
+			}
 		default:
 			return state || _initialState2.default.main;
 	}
@@ -38130,7 +38281,7 @@ var state_update = function state_update() {
 
 exports.default = state_update;
 
-},{"../constants.js":261,"../history.js":268,"../initialState":270}],273:[function(require,module,exports){
+},{"../initialState":270}],273:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {

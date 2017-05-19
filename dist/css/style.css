@@ -141,6 +141,14 @@ button {
   to {
     opacity: 1; } }
 
+@keyframes fall {
+  from {
+    opacity: 0;
+    transform: translate(0, -50px); }
+  to {
+    opacity: 1;
+    transform: translate(0, 0); } }
+
 /*shakes*/
 @keyframes right {
   0% {
@@ -1969,13 +1977,57 @@ button {
   color: #fff;
   padding-bottom: 10px;
   /*title*/
+  /*info*/
   /*timeline*/ }
+  .work .info {
+    height: 60px;
+    line-height: 60px;
+    width: 80%;
+    margin: 0 10% 20px 10%;
+    border-bottom: 1px solid #fff; }
+    @media (max-width: 1000px) {
+      .work .info {
+        width: 100%;
+        margin: 0 0 20px 0; } }
+    .work .info .item {
+      float: left;
+      width: 20%;
+      cursor: pointer; }
+      .work .info .item .round {
+        float: left;
+        margin-top: 10px;
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        border-radius: 40px;
+        background: #984b43;
+        color: #fff;
+        opacity: 0; }
+      .work .info .item .txt {
+        float: left;
+        padding-left: 10px;
+        opacity: 0;
+        transform: translate(0, -50px); }
+      @media (max-width: 800px) {
+        .work .info .item .txt {
+          display: none; } }
+      .work .info .item:not(.active):hover {
+        transition: 0.8s; }
+        .work .info .item:not(.active):hover .round {
+          opacity: 0.8; }
+        .work .info .item:not(.active):hover .txt {
+          color: #c99e10; }
+    .work .info .active .round {
+      background: #1e434c;
+      color: #c99e10; }
+    .work .info .active .txt {
+      color: #c99e10; }
   .work .timeline {
     /*overflow: auto;*/
     font-family: "hand";
     letter-spacing: 0.05em;
     width: 100%;
-    height: 100%;
+    height: auto;
     /*padding: 0 0 0 10px;*/
     position: relative; }
     .work .timeline .grammh {
@@ -2088,8 +2140,6 @@ button {
             left: 7%;
             right: auto; } }
       .work .timeline .timeRow .project {
-        opacity: 0;
-        transform: scale(0);
         position: absolute;
         top: 99px;
         bottom: auto;
@@ -2134,6 +2184,12 @@ button {
             background: #f0f0f0;
             color: #c73721;
             padding: 5px 10px; }
+          .work .timeline .timeRow .project .title .active {
+            background: #1e434c;
+            color: #c99e10; }
+        .work .timeline .timeRow .project .active {
+          background: #1e434c;
+          color: #c99e10; }
         .work .timeline .timeRow .project .descr {
           height: 60px;
           line-height: 60px;
