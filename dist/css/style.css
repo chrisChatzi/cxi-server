@@ -451,6 +451,9 @@ button {
     left: 100%; } }
 
 /*reused*/
+.titleVis {
+  display: none; }
+
 .titleHead .text, .main .titleTop .text, .tech .titleTop .text, .contact .titleTop .text, .work .titleTop .text {
   height: 50px;
   line-height: 50px; }

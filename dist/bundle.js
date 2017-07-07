@@ -35766,6 +35766,11 @@ var Contact = function Contact(_ref) {
 			{ className: "titleTop" },
 			_react2.default.createElement("div", { id: "line", className: "line lineTop" }),
 			_react2.default.createElement(
+				"h1",
+				{ className: "titleVis" },
+				"Contact"
+			),
+			_react2.default.createElement(
 				"div",
 				{ id: "", className: "text" },
 				_react2.default.createElement(
@@ -36226,6 +36231,11 @@ var Main = function Main(_ref) {
 			{ className: "titleTop" },
 			_react2.default.createElement("div", { id: "line", className: "line lineTop" }),
 			_react2.default.createElement(
+				"h1",
+				{ className: "titleVis" },
+				"Web Solutions"
+			),
+			_react2.default.createElement(
 				"div",
 				{ id: "", className: "text" },
 				_react2.default.createElement(
@@ -36394,6 +36404,11 @@ var Tech = function Tech(_ref) {
 			"div",
 			{ className: "titleTop" },
 			_react2.default.createElement("div", { id: "line", className: "line lineTop" }),
+			_react2.default.createElement(
+				"h1",
+				{ className: "titleVis" },
+				"Tech Stack"
+			),
 			_react2.default.createElement(
 				"div",
 				{ id: "", className: "text" },
@@ -36606,6 +36621,11 @@ var Work = function Work(_ref) {
 			"div",
 			{ className: "titleTop" },
 			_react2.default.createElement("div", { id: "line", className: "line lineTop" }),
+			_react2.default.createElement(
+				"h1",
+				{ className: "titleVis" },
+				"Work & Experience"
+			),
 			_react2.default.createElement(
 				"div",
 				{ id: "", className: "text" },
