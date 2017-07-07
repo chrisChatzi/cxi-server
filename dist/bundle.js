@@ -37058,6 +37058,8 @@ var Contact = function (_Component) {
 
 		var _this = _possibleConstructorReturn(this, (Contact.__proto__ || Object.getPrototypeOf(Contact)).call(this, props));
 
+		document.title = "CXI - Contact";
+
 		_this.interval = 0;
 		_this.hoveredEl = "";
 
@@ -37463,6 +37465,8 @@ var Main = function (_Component) {
 
 		var _this = _possibleConstructorReturn(this, (Main.__proto__ || Object.getPrototypeOf(Main)).call(this, props));
 
+		document.title = "CXI - Web solutions";
+
 		_this.hashOver = _this.hashOverH.bind(_this);
 		_this.hashOut = _this.hashOutH.bind(_this);
 		_this.mover = _this.moverH.bind(_this);
@@ -37688,6 +37692,8 @@ var Tech = function (_Component) {
 		_classCallCheck(this, Tech);
 
 		var _this = _possibleConstructorReturn(this, (Tech.__proto__ || Object.getPrototypeOf(Tech)).call(this, props));
+
+		document.title = "CXI - Tech stack";
 
 		_this.timer = 0;
 		_this.timeout = 0;
@@ -38184,20 +38190,6 @@ var _reducers2 = _interopRequireDefault(_reducers);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var store = (0, _redux.createStore)(_reducers2.default, (0, _redux.applyMiddleware)(_reduxThunk2.default));
-
-var xhttp = new XMLHttpRequest();
-xhttp.onreadystatechange = function () {
-	if (this.readyState == 4 && this.status == 200) {
-		// console.log(this.responseText);
-		// console.log(typeof this.responseText);
-		var arr = this.responseText;
-		// let res = arr.substring(arr.indexOf('{'), arr.lastIndexOf('}')+1);
-		console.log(JSON.parse(arr));
-	}
-};
-xhttp.open("GET", "https://api.discogs.com/artists/125246", true);
-// xhttp.open("GET", "https://api.discogs.com/database/search?q=Nirvana&{?artist}&token=ofnoxFsPLlOQBOUgFeWhkMWkspBPGOfFPXKLQADs", true);
-xhttp.send();
 
 desktop();
 function desktop() {
