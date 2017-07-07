@@ -35766,11 +35766,6 @@ var Contact = function Contact(_ref) {
 			{ className: "titleTop" },
 			_react2.default.createElement("div", { id: "line", className: "line lineTop" }),
 			_react2.default.createElement(
-				"h1",
-				{ className: "titleVis" },
-				"Contact"
-			),
-			_react2.default.createElement(
 				"div",
 				{ id: "", className: "text" },
 				_react2.default.createElement(
@@ -35823,7 +35818,7 @@ var Contact = function Contact(_ref) {
 					_react2.default.createElement("i", { className: "fa fa-2x fa-envelope" })
 				),
 				_react2.default.createElement(
-					"div",
+					"h1",
 					{ className: "msg-title" },
 					_react2.default.createElement(
 						"span",
@@ -36231,11 +36226,6 @@ var Main = function Main(_ref) {
 			{ className: "titleTop" },
 			_react2.default.createElement("div", { id: "line", className: "line lineTop" }),
 			_react2.default.createElement(
-				"h1",
-				{ className: "titleVis" },
-				"Web Solutions"
-			),
-			_react2.default.createElement(
 				"div",
 				{ id: "", className: "text" },
 				_react2.default.createElement(
@@ -36320,12 +36310,12 @@ var Main = function Main(_ref) {
 						_react2.default.createElement("i", { className: "fa fa-4x fa-" + v.icon })
 					),
 					_react2.default.createElement(
-						"div",
+						"h1",
 						{ className: "title" },
 						v.title
 					),
 					_react2.default.createElement(
-						"div",
+						"h2",
 						{ className: "txt" },
 						v.txt
 					),
@@ -36405,11 +36395,6 @@ var Tech = function Tech(_ref) {
 			{ className: "titleTop" },
 			_react2.default.createElement("div", { id: "line", className: "line lineTop" }),
 			_react2.default.createElement(
-				"h1",
-				{ className: "titleVis" },
-				"Tech Stack"
-			),
-			_react2.default.createElement(
 				"div",
 				{ id: "", className: "text" },
 				_react2.default.createElement(
@@ -36469,7 +36454,7 @@ var Tech = function Tech(_ref) {
 			"div",
 			{ className: "buttons" },
 			_react2.default.createElement(
-				"div",
+				"h1",
 				{ className: state.active == "front" ? "button active" : "button",
 					onClick: function onClick() {
 						return tab("front");
@@ -36477,7 +36462,7 @@ var Tech = function Tech(_ref) {
 				"Frontend"
 			),
 			_react2.default.createElement(
-				"div",
+				"h1",
 				{ className: state.active == "back" ? "button active" : "button",
 					onClick: function onClick() {
 						return tab("back");
@@ -36622,11 +36607,6 @@ var Work = function Work(_ref) {
 			{ className: "titleTop" },
 			_react2.default.createElement("div", { id: "line", className: "line lineTop" }),
 			_react2.default.createElement(
-				"h1",
-				{ className: "titleVis" },
-				"Work & Experience"
-			),
-			_react2.default.createElement(
 				"div",
 				{ id: "", className: "text" },
 				_react2.default.createElement(
@@ -36732,7 +36712,7 @@ var Work = function Work(_ref) {
 					_react2.default.createElement("i", { className: "fa fa-desktop" })
 				),
 				_react2.default.createElement(
-					"div",
+					"h1",
 					{ className: "txt filterTxt" },
 					"Web app"
 				)
@@ -36749,7 +36729,7 @@ var Work = function Work(_ref) {
 					_react2.default.createElement("i", { className: "fa fa-phone" })
 				),
 				_react2.default.createElement(
-					"div",
+					"h1",
 					{ className: "txt filterTxt" },
 					"Mobile app"
 				)
@@ -36766,7 +36746,7 @@ var Work = function Work(_ref) {
 					_react2.default.createElement("i", { className: "fa fa-book" })
 				),
 				_react2.default.createElement(
-					"div",
+					"h1",
 					{ className: "txt filterTxt" },
 					"JS Library"
 				)
@@ -36783,7 +36763,7 @@ var Work = function Work(_ref) {
 					_react2.default.createElement("i", { className: "fa fa-graduation-cap" })
 				),
 				_react2.default.createElement(
-					"div",
+					"h1",
 					{ className: "txt filterTxt" },
 					"Education"
 				)
@@ -36800,7 +36780,7 @@ var Work = function Work(_ref) {
 					_react2.default.createElement("i", { className: "fa fa-building" })
 				),
 				_react2.default.createElement(
-					"div",
+					"h1",
 					{ className: "txt filterTxt" },
 					"Company"
 				)
@@ -36846,7 +36826,7 @@ var Work = function Work(_ref) {
 							},
 							className: i % 2 == 0 ? "project projectRight" : "project projectLeft" },
 						_react2.default.createElement(
-							"h3",
+							"h2",
 							{ className: "title" },
 							_react2.default.createElement(
 								"span",
