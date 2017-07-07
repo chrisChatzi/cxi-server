@@ -38284,6 +38284,8 @@ var _initialState2 = _interopRequireDefault(_initialState);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+// import 'babel-core/polyfill'
+
 var state_update = function state_update() {
 	var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : _initialState2.default.main;
 	var action = arguments[1];
